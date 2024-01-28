@@ -1,0 +1,51 @@
+.header {
+  margin: 46px 25px 0 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header a {
+  margin: 12px 0 0 0;
+}
+
+.mainNav {
+  margin: 0 0 0 -560px;
+}
+
+.mainUl {
+  display: flex;
+  margin: 15px 0 0 0;
+  justify-content: space-between;
+}
+
+.mainUl li {
+  color: rgba(255, 255, 255, 0.70);
+  margin: 0 28px;
+  cursor: pointer;
+}
+
+.login {
+  margin: 0 5px 0 0;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+@media (hover:hover) and (pointer:fine) and (min-width: 1024px) {
+  .mainUl li:hover {
+    color: #FFFFFF;
+  }
+
+  .login:hover {
+    color: #FFFFFF;
+  }
+
+  .signUp:hover {
+    transform: scale(0.9);
+  }
+}
+
+.signUp {
+  background: #BC4749;
+  border-radius: 7px;
+  padding: 13px 33px;
+}
+

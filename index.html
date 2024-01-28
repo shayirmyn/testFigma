@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<header class="header">
+    <a href="#"><img src="./images/logo.svg" alt="logo"></a>
+    <nav class="mainNav">
+        <ul class="mainUl">
+            <li>About Us</li>
+            <li>Features</li>
+            <li>Pricing</li>
+            <li>Product</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <div>
+        <button class="login">Login</button>
+        <button class="signUp">Sign up</button>
+    </div>
+</header>
+<main class="main">
+    <div class="container">
+        <h1 class="mainInfo">Instantly Connect with Your Leads</h1>
+        <div class="cards">
+            <div class="card card-1">
+                <h5 class="infoH5">Basic Survival</h5>
+                <div class="blockSpan">
+                    <span class="val" onclick="toggleSwitch()">$</span>
+                    <span class="spanNumber">30</span>
+                    <span class="date" onclick="toggleDuration()">/Months</span>
+                </div>
+                <span class="spanInfo">Get Torque’s basic plan to optimise you lead generation process.</span>
+                <div class="pAndSpan">
+                    <p class="pInfo">Core Features</p>
+                    <span>Basic</span>
+                </div>
+                <a href="#">Email addresses</a>
+                <a href="#">Phone numbers</a>
+                <a href="#">Unlimited Lists</a>
+
+                <button class="card-btn">Start Free Trial</button>
+            </div>
+            <div class="card card-2">
+                <h5 class="infoH5">Mission Professional</h5>
+                <div class="blockSpan">
+                    <span class="val" onclick="toggleSwitch()">$</span>
+                    <span class="spanNumber">276</span>
+                    <span class="date" onclick="toggleDuration()">/Months</span>
+                </div>
+                <span class="spanInfo">Get Torque’s basic plan to optimise you lead generation process.</span>
+                <div class="pAndSpan">
+                    <p class="pInfo">Core Features</p>
+                    <span>Boost Tools</span>
+                </div>
+                <a href="#">Email addresses</a>
+                <a href="#">Phone numbers</a>
+                <a href="#">Unlimited Lists</a>
+                <a href="#">Export contacts</a>
+                <a href="#">Prospecting</a>
+                <a href="#">50MB Per File Attachment</a>
+
+                <button class="card-btn">Get Started</button>
+            </div>
+            <div class="card card-3">
+                <h5 class="infoH5">Rocketship Premium</h5>
+                <div class="blockSpan">
+                    <span class="val" onclick="toggleSwitch()">$</span>
+                    <span class="spanNumber">420</span>
+                    <span class="date" onclick="toggleDuration()">/Months</span>
+                </div>
+                <span class="spanInfo">Get Torque’s basic plan to optimise you lead generation process.</span>
+                <div class="pAndSpan">
+                    <p class="pInfo">Core Features</p>
+                    <span>Super Fuel</span>
+                </div>
+                <a href="#">Email addresses</a>
+                <a href="#">Phone numbers</a>
+                <a href="#">Unlimited Lists</a>
+                <a href="#">Export contacts</a>
+                <a href="#">Prospecting</a>
+                <a href="#">50MB Per File Attachment</a>
+                <a href="#">Basic analytics</a>
+
+                <button class="card-btn">Start Free Trial</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card, i) => {
+        setTimeout(() => {
+            card.style.opacity = "1";
+        }, i * 600)
+    });
+
+    toggleSwitch = () => {
+        const currencySwitch = document.querySelector(".val");
+        const currencySymbol = currencySwitch.innerHTML;
+
+        const priceElements = document.querySelectorAll('.spanNumber');
+        const value = document.querySelectorAll(".val");
+
+        if (currencySymbol === '$') {
+            value.forEach(val => {
+                val.innerHTML = '₽';
+            });
+            priceElements.forEach(priceElement => {
+                const price = parseFloat(priceElement.innerHTML);
+                priceElement.innerHTML = Math.ceil(price * 86);
+            });
+        } else if (currencySymbol === '₽') {
+            value.forEach(val => {
+                val.innerHTML = '€';
+            });
+            priceElements.forEach(priceElement => {
+                const price = parseFloat(priceElement.innerHTML);
+                priceElement.innerHTML = Math.ceil(price / 0.90);
+            });
+        } else {
+            value.forEach(val => {
+                val.innerHTML = '$';
+            });
+            priceElements.forEach(priceElement => {
+                const price = parseFloat(priceElement.innerHTML);
+                priceElement.innerHTML = Math.ceil(price * 0.86);
+            });
+        }
+    }
+
+    // convertToRUB = (priceUSD) => {
+    //     const realPrice = priceUSD * 86;
+    //     return realPrice;
+    // }
+    //
+    // convertToEUR = (priceUSD) => {
+    //     const realPrice = priceUSD * 2;
+    //     return realPrice;
+    // }
+    //
+    // convertToUSD = (priceRUB) => {
+    //     const realPrice = priceRUB / 86;
+    //     return realPrice;
+    // }
+
+
+    toggleDuration = () => {
+        const durationSwitch = document.querySelectorAll(".date");
+        const priceElements = document.querySelectorAll('.spanNumber');
+
+        const array = [30, 276, 420];
+
+        durationSwitch.forEach(every => {
+            priceElements.forEach(num => {
+                if (every.innerHTML === '/Months') {
+                    every.innerHTML = '/Day';
+                    const price = parseFloat(num.innerHTML);
+                    const realPrice = Math.ceil(price / 30);
+                    num.innerHTML = realPrice;
+                } else {
+                    every.innerHTML = '/Months';
+                    array.forEach(prev => {
+                        num.innerHTML = prev;
+                    });
+                }
+            });
+
+        });
+    }
+
+
+</script>
+</body>
+</html>
