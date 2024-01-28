@@ -1,13 +1,25 @@
+@use "mixin" as mix;
+
 .mainInfo {
   font-weight: 600;
   font-size: 41px;
   margin: 50px 0 80px 0;
   text-align: center;
+  @include mix.lg {
+    font-size: 35px;
+  }
+  @include mix.md {
+    font-size: 28px;
+  }
+  @include mix.sm {
+    font-size: 22px;
+  }
 }
 
 .cards {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -30,12 +42,15 @@
   box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.10);
 }
 
-@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
   .card-1:hover {
     background: #1D252B;
     max-width: 380px;
     z-index: 10;
     margin: -40px -120px 100px 0;
+    @include mix.lg {
+      margin: 0;
+      max-width: 334px;
+    }
     transition: background 1000ms, max-width 2s, margin 2s;
   }
 
@@ -44,6 +59,10 @@
     max-width: 380px;
     z-index: 10;
     margin: -40px -180px 100px -180px;
+    @include mix.lg {
+      margin: 0;
+      max-width: 334px;
+    }
     transition: background 1000ms, max-width 2s, margin 2s;
   }
 
@@ -52,6 +71,10 @@
     max-width: 380px;
     z-index: 10;
     margin: -40px 0 100px -120px;
+    @include mix.lg {
+      margin: 0;
+      max-width: 334px;
+    }
     transition: background 1000ms, max-width 2s, margin 2s;
   }
 
@@ -75,8 +98,10 @@
     height: 17px;
     right: 45px;
     top: 10px;
+    @include mix.sm {
+      right: 20px;
+    }
   }
-}
 
 .infoH5 {
   margin: 0 0 15px 0;

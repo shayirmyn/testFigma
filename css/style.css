@@ -231,7 +231,27 @@ li {
 }
 
 .mainNav {
-  margin: 0 0 0 -560px;
+  margin: 0 0 0 -460px;
+}
+@media screen and (max-width: 1200px) {
+  .mainNav {
+    margin: 0 0 0 -270px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainNav {
+    margin: 0 0 0 -170px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .mainNav {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 844px) {
+  .mainNav {
+    margin: 0 30px 0 0;
+  }
 }
 
 .mainUl {
@@ -239,16 +259,33 @@ li {
   margin: 15px 0 0 0;
   justify-content: space-between;
 }
+@media screen and (max-width: 844px) {
+  .mainUl {
+    flex-direction: column;
+  }
+}
 
 .mainUl li {
   color: rgba(255, 255, 255, 0.7);
   margin: 0 28px;
   cursor: pointer;
 }
+@media screen and (max-width: 844px) {
+  .mainUl li {
+    margin: 0 0 10px 0;
+  }
+}
 
 .login {
   margin: 0 5px 0 0;
   color: rgba(255, 255, 255, 0.7);
+}
+@media screen and (max-width: 576px) {
+  .login {
+    display: block;
+    font-size: 15px;
+    margin: 10px 0 10px 0;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
@@ -267,6 +304,11 @@ li {
   border-radius: 7px;
   padding: 13px 33px;
 }
+@media screen and (max-width: 576px) {
+  .signUp {
+    padding: 7px 40px;
+  }
+}
 
 .mainInfo {
   font-weight: 600;
@@ -274,10 +316,26 @@ li {
   margin: 50px 0 80px 0;
   text-align: center;
 }
+@media screen and (max-width: 992px) {
+  .mainInfo {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 844px) {
+  .mainInfo {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .mainInfo {
+    font-size: 22px;
+  }
+}
 
 .cards {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -300,48 +358,75 @@ li {
   box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.1);
 }
 
-@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+.card-1:hover {
+  background: #1D252B;
+  max-width: 380px;
+  z-index: 10;
+  margin: -40px -120px 100px 0;
+  transition: background 1000ms, max-width 2s, margin 2s;
+}
+@media screen and (max-width: 992px) {
   .card-1:hover {
-    background: #1D252B;
-    max-width: 380px;
-    z-index: 10;
-    margin: -40px -120px 100px 0;
-    transition: background 1000ms, max-width 2s, margin 2s;
-  }
-  .card-2:hover {
-    background: #1D252B;
-    max-width: 380px;
-    z-index: 10;
-    margin: -40px -180px 100px -180px;
-    transition: background 1000ms, max-width 2s, margin 2s;
-  }
-  .card-3:hover {
-    background: #1D252B;
-    max-width: 380px;
-    z-index: 10;
-    margin: -40px 0 100px -120px;
-    transition: background 1000ms, max-width 2s, margin 2s;
-  }
-  .card:hover .spanInfo::after {
-    display: none;
-  }
-  .card:hover .card-btn {
-    position: relative;
-    background: #BC4749;
-    transition: background 1000ms;
-    border: 0.864px solid #BC4749;
-  }
-  .card-btn::after {
-    content: "";
-    position: absolute;
-    background: url("../../images/arrow.svg") no-repeat 50% 50%;
-    display: block;
-    width: 17px;
-    height: 17px;
-    right: 45px;
-    top: 10px;
+    margin: 0;
+    max-width: 334px;
   }
 }
+
+.card-2:hover {
+  background: #1D252B;
+  max-width: 380px;
+  z-index: 10;
+  margin: -40px -180px 100px -180px;
+  transition: background 1000ms, max-width 2s, margin 2s;
+}
+@media screen and (max-width: 992px) {
+  .card-2:hover {
+    margin: 0;
+    max-width: 334px;
+  }
+}
+
+.card-3:hover {
+  background: #1D252B;
+  max-width: 380px;
+  z-index: 10;
+  margin: -40px 0 100px -120px;
+  transition: background 1000ms, max-width 2s, margin 2s;
+}
+@media screen and (max-width: 992px) {
+  .card-3:hover {
+    margin: 0;
+    max-width: 334px;
+  }
+}
+
+.card:hover .spanInfo::after {
+  display: none;
+}
+
+.card:hover .card-btn {
+  position: relative;
+  background: #BC4749;
+  transition: background 1000ms;
+  border: 0.864px solid #BC4749;
+}
+
+.card-btn::after {
+  content: "";
+  position: absolute;
+  background: url("../../images/arrow.svg") no-repeat 50% 50%;
+  display: block;
+  width: 17px;
+  height: 17px;
+  right: 45px;
+  top: 10px;
+}
+@media screen and (max-width: 576px) {
+  .card-btn::after {
+    right: 20px;
+  }
+}
+
 .infoH5 {
   margin: 0 0 15px 0;
   font-weight: 600;

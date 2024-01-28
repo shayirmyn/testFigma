@@ -1,3 +1,5 @@
+@use "mixin" as mix;
+
 .header {
   margin: 46px 25px 0 25px;
   display: flex;
@@ -9,24 +11,49 @@
 }
 
 .mainNav {
-  margin: 0 0 0 -560px;
+  margin: 0 0 0 -460px;
+  @include mix.xxl {
+    margin: 0 0 0 -270px;
+  }
+  @include mix.xl {
+    margin: 0 0 0 -170px;
+
+  }
+  @include mix.lg {
+    margin: 0;
+  }
+  @include mix.md {
+    margin: 0 30px 0 0;
+  }
 }
 
 .mainUl {
   display: flex;
   margin: 15px 0 0 0;
   justify-content: space-between;
+  @include mix.md {
+    flex-direction: column;
+
+  }
 }
 
 .mainUl li {
   color: rgba(255, 255, 255, 0.70);
   margin: 0 28px;
   cursor: pointer;
+  @include mix.md {
+    margin: 0 0 10px 0;
+  }
 }
 
 .login {
   margin: 0 5px 0 0;
   color: rgba(255, 255, 255, 0.70);
+  @include mix.sm {
+    display: block;
+    font-size: 15px;
+    margin: 10px 0 10px 0;
+  }
 }
 
 @media (hover:hover) and (pointer:fine) and (min-width: 1024px) {
@@ -47,5 +74,8 @@
   background: #BC4749;
   border-radius: 7px;
   padding: 13px 33px;
+  @include mix.sm {
+    padding: 7px 40px;
+  }
 }
 
